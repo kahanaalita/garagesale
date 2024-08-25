@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"encoding/json"
+	"flag"
 	"log"
 	"net/http"
 	"net/url"
@@ -23,7 +24,15 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 		defer db.Close()
+		flag.Parse()
+		switch flag.Arg(0) {
+		case "seed":
+
+		case "migrate":
+
+		}
 	}
+
 	// Настраиваем сервер API
 	api := http.Server{
 		Addr:         "localhost:8000",
