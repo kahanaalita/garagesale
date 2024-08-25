@@ -77,12 +77,12 @@ func openDB() (*sqlx.DB, error) {
 	u := url.URL{
 		Scheme:   "postgres",
 		User:     url.UserPassword("postgres", "sakhalin"),
-		Host:     "localhost:5432",
+		Host:     "localhost:5433",
 		Path:     "postgres",
 		RawQuery: q.Encode(),
 	}
 
-	return sqlx.Connect("postgres", u.String())
+	return sqlx.Open("postgres", u.String())
 }
 
 // Product это то что мы продаем
